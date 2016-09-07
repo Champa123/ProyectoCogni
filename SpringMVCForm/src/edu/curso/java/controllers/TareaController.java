@@ -82,7 +82,7 @@ public class TareaController {
 		
 		
 		
-		return "redirect:/tarea/vertarea.html?id=" + id;
+		return "redirect:/proyecto/vertarea.html?id=" + id;
 }
 	
 

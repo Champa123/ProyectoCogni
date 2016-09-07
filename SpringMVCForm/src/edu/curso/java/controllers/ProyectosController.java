@@ -177,6 +177,14 @@ public class ProyectosController {
 		model.addAttribute("tareas",tareas);
 		return "/tareas/vertarea";
 	}
+	@RequestMapping (value="agregartarea")
+	public String agregarTarea(@RequestParam Long id, Model model){
+		Proyecto proyecto = proyectoService.recuperarProyectoPorId(id);
+		
+		
+		
+		return null;
+	}
 	
 	
 	}
