@@ -17,7 +17,7 @@ $(function(){
 <br>
 <br>
 <br>
-	<form:form method="post" modelAttribute="proyectoForm" action="guardarproyecto.html">
+	<form:form method="post" modelAttribute="proyectoForm" action="guardarnuevoproyecto.html">
 		<form:input path="id" type="hidden" />
 		<div class="form-group">
 		<label for="nombre">Nombre</label>
@@ -40,7 +40,7 @@ $(function(){
 		<br>
 		<div class="form-group">
 		<input type="submit" class="btn btn-success" value="Guardar">
-		<a href="listar.html" 
+		<a href="index.html" 
 					class="btn btn-danger">Volver </a>
 		</div>
 	</form:form>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.curso.java.bo.Proyecto;
 import edu.curso.java.bo.Usuario;
+import edu.curso.java.controllers.autocomplete.ItemAutoComplete;
 
 @Repository
 public class ProyectoDAOImp implements ProyectoDAO {
@@ -24,7 +25,7 @@ public class ProyectoDAOImp implements ProyectoDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Proyecto> listarProyectos() {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Proyecto");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Proyecto as p");
         return query.list();
 	}
 
@@ -50,11 +51,20 @@ public class ProyectoDAOImp implements ProyectoDAO {
 		Proyecto proyecto = this.recuperarProyectoPorId(id);
 		sessionFactory.getCurrentSession().delete(proyecto);
 	}
-
+	
 	@Override
 	public void editarProyecto(Proyecto proyecto) {
 		sessionFactory.getCurrentSession().update(proyecto);
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Proyecto> buscarProyectoPorNombre(String term) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Proyecto as p where p.nombre like '%" + term + "%'");
+		return  query.list();
+		
+	}
+
+	
 }

@@ -1,8 +1,11 @@
 package edu.curso.java.bo;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames={"usuario"}))
 public class Usuario {
 
 	@Id
@@ -13,6 +16,8 @@ public class Usuario {
 	private String usuario;
 	private String password;
 	private boolean activo;
+	@OneToMany
+	private List<Rol> roles;
 	
 	public Long getId() {
 		return id;
@@ -43,6 +48,12 @@ public class Usuario {
 	}
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+	public List<Rol> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
 	
 }

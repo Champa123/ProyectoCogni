@@ -14,7 +14,7 @@ public class ProyectoForm {
 	private List<Usuario> usuarios = new ArrayList<>();
 	private List<Tarea> tareas = new ArrayList<>();
 	private Long idUsuarioPrincipal;
-	private Long[] idUsuarios;
+	private List<Long> idUsuarios;
 	
 	public Long getIdUsuarioPrincipal() {
 		return idUsuarioPrincipal;
@@ -76,13 +76,13 @@ public class ProyectoForm {
 
 
 
-	public Long[] getIdUsuarios() {
+	public List<Long> getIdUsuarios() {
 		return idUsuarios;
 	}
 
 
 
-	public void setIdUsuarios(Long[] idUsuarios) {
+	public void setIdUsuarios(List<Long> idUsuarios) {
 		this.idUsuarios = idUsuarios;
 	}
 

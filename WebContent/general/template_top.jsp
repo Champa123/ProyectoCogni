@@ -16,9 +16,21 @@
     <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/css/general.css" />" rel="stylesheet">
 	<link href="<c:url value="/css/select2.css" />" rel="stylesheet">
+	<link href="<c:url value="/css/jquery-ui.css" />" rel="stylesheet">
 	<script src="<c:url value="/js/jquery-3.1.0.js" />"></script>
+	<script src="<c:url value="/js/jquery-ui.js" />"></script>
     <script src="<c:url value="/js/bootstrap.min.js" />"></script>
     <script src="<c:url value="/js/select2.full.min.js" />"></script>
+    <script>
+   $(document).ready(function(){
+    $("#autocomplete").autocomplete({
+    	source: '<c:url value="/api/proyectos/autocomplete.json"/>', 
+    	minLength:2,
+    	select: function(event , ui) {
+    		window.location = '/trackandbug/proyectos/verproyecto.html?id=' + ui.item.id;
+    }});
+   })
+    </script>
   </head>
 
   <body>
@@ -39,8 +51,15 @@
             <li class="active"><a href="<c:url value="/index.jsp" />">Home</a></li>
             <li><a href="<c:url value="/proyectos/index.html" />">Proyectos</a></li>
             <li><a href="<c:url value="/usuarios/listar.html" />">Listar</a></li>
+            <li><a href="<c:url value="/tareas/listartareas.html" />">Tareas</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+          <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input id="autocomplete" type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+       </div>
+        <!--/.nav-collapse -->
       </div>
     </nav>
 

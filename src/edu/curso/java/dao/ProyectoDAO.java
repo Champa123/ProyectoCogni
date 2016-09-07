@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.curso.java.bo.Proyecto;
 import edu.curso.java.bo.Usuario;
+import edu.curso.java.controllers.autocomplete.ItemAutoComplete;
 
 public interface ProyectoDAO {
 
@@ -19,4 +20,5 @@ public interface ProyectoDAO {
 	
 	void editarProyecto(Proyecto proyecto);
 	
+	List<Proyecto> buscarProyectoPorNombre(String term);
 }
